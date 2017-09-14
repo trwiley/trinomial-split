@@ -19,3 +19,8 @@ class TrinomialSplit:
 
     def __init__(self, trinomialinstance):
         self.trinomial = trinomialinstance
+
+
+#test function
+    def PrintTrinomial(self):
+        print(self.trinomial)
