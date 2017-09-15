@@ -24,6 +24,22 @@ if the ST has separators:
    remove them and return the version of the ST withh removed parens
 
 send ST copy to splitters
+
+```
+
+#### Splitting function
+
+```
+for each character in the trinomial
+
+   if trinomial[character] < 3
+      trinomial[character] += statenumber
+   
+   if trinomial[character] < 5
+      trinomial[character] += countycode
+
+   else
+      trinomial[character] += sitecode
 ```
 
 ## TrinomialLookup
