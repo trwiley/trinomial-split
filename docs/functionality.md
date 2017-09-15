@@ -24,7 +24,7 @@ if the ST has separators:
    remove them and return the version of the ST withh removed parens
 
 send ST copy to splitters
-
+```
 
 ## TrinomialLookup
 
