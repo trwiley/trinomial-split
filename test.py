@@ -4,5 +4,7 @@
 
 import trinomialsplit
 
-exampletrinomial = trinomialsplit.TrinomialSplit("20MA12")
-exampletrinomial.PrintTrinomial();
+t = input("Enter a ST: ")
+
+exampletrinomial = trinomialsplit.TrinomialSplit(t)
+exampletrinomial.print_elements()
