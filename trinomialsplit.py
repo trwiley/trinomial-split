@@ -66,6 +66,9 @@ class TrinomialSplit:
         if self.has_dashes_or_spaces():
             self.strip_dashes()
 
+        if self.is_lowercase():
+            self.change_toupper()
+
         for i in range(0, len(self.trinomial)):
 
             #If the state number is two digits long:
@@ -100,3 +103,23 @@ class TrinomialSplit:
      # test function
     def print_trinomial(self):
         print(self.trinomial)
+
+    # checks if any of the letters are lower case, and, if so, returns true.
+    def is_lowercase(self):
+        for i in range(0, len(self.trinomial)):
+            if self.trinomial[i].isalpha():
+                if self.trinomial.islower():
+                    return True
+
+        return False
+
+    #changes any lowercase letters to uppercase.
+    def change_toupper(self):
+        temp = ""
+        for i in range(0, len(self.trinomial)):
+            if  self.trinomial[i].isalpha() and self.trinomial[i].islower():
+                temp += self.trinomial[i].upper()
+            else:
+                temp += self.trinomial[i]
+        self.trinomial = temp
+        

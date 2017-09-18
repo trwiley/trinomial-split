@@ -41,41 +41,21 @@ dash or space characters into a temporary string variable. This temp is stored i
 ### has_parens_or_brackets
 
 Boolean function. Checks whether the trinomial has parentheses or brackets. if so, return true.
-### Pseudocode
 
-```
+### strip_parens
 
-declare a copy of the ST for formatting and splitting purposes in the class definition
+Strips the parentheses or brackets off of a trinomial. Does so by copying all of the characters in the trinomial that 
+are not at the beginning or at the end.
 
-check for parens
-check for separators
 
-if the ST has parens
-   remove them and return the version of the ST with removed parens
-if the ST has separators:
-   remove them and return the version of the ST withh removed parens
-
-send ST copy to splitters
-
-```
-
-#### Splitting function
-
-```
-for each character in the trinomial
-
-   if trinomial[character] < 3
-      trinomial[character] += statenumber
-   
-   if trinomial[character] < 5
-      trinomial[character] += countycode
-
-   else
-      trinomial[character] += sitecode
-```
 
 ## TrinomialLookup
 
-Will consist of lookup tables for counties and states and the functions to look up trinomial areas. The idea at the moment is to store these as CSV or JSON but this may change as I do 
-more research about what would be the most painless way to accomplish this.
+The constructor of TrinomialLookup makes an instance of TrinomialSplit. More to be added in the future.
+
+## read_json
+
+Simple script that loads in the state (and eventually county) JSON files. This functionality was implemented
+a separate from TrinomialLookup so that a new instance of the state and county lookup would not be created 
+everytime a new lookup object is made.
 
