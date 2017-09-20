@@ -1,7 +1,8 @@
 # Functionality of trinomial-split
 
-trinomial-split has 2 classes: TrinomialSplit and TrinomialLookup
-## TrinomialSplit
+trinomial-split is a repo containing classes and functions to split up trinomials into their constituent parts and
+use those parts to lookup the state and county the trinomial is associated with. It consists of the following scripts:
+## trinomialsplit
 
 Consists of the trinomial itself and the functions to split it in its constituent elements.
 
@@ -49,13 +50,10 @@ are not at the beginning or at the end.
 
 
 
-## TrinomialLookup
+## trinomiallookup
 
-The constructor of TrinomialLookup makes an instance of TrinomialSplit. More to be added in the future.
+Script that reads in JSON files containing state data and contains functions for returning the state
+and county of a trinomial by passing in its elements.
 
-## read_json
 
-Simple script that loads in the state (and eventually county) JSON files. This functionality was implemented
-a separate from TrinomialLookup so that a new instance of the state and county lookup would not be created 
-everytime a new lookup object is made.
 

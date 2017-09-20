@@ -2,13 +2,12 @@
 #Purpose; test the TrinomialSplit class.
 
 
-import trinomialsplit
+import trinomialsplit as ts
 import trinomiallookup as tl
-import read_json as rj
 
 t = input("Enter a ST: ")
 
-#exampletrinomial = tl.TrinomialLookup(t)
-
-print(rj.statebase)
+trinomial = ts.TrinomialSplit(t)
+state = tl.lookup_state(trinomial)
+print(state)
 

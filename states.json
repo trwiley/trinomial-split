@@ -1,4 +1,12 @@
-{"ST_states": [
-	{ "Tri":1, "state":"Alabama" },
-	{ "Tri":3, "state":"Arkansas" }
-]}
+{
+	"ST_states": [
+		{
+			"Tri":"1",
+			"state":"Alabama"
+		},
+		{
+			"Tri": "3",
+			"state": "Arkansas"
+		}
+	]
+}
