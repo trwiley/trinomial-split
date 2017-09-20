@@ -1,7 +1,13 @@
 # Trinomial Split
 
--- This will (eventually) be a set of python  classes and functions that takes a Smithsonian Trinomial Number (STN), splits it into its constituent parts, and performs a lookup to see what state and county it is referring to. 
+WIP set of python scripts that takes Smithsonian Trinomial site numbers, splits them into their 
+individual elements, and looks up the state and county they are associated with.
 
--- A small test program will also be written to test out the functions.
 
--- This project was started mostly because I wanted a venue in which I could learn Python. 
+This project was started mostly because I wanted a venue in which I could learn Python. 
+
+##Progress
+* ST Splitting: DONE
+* Lookup state: 75% Need to add in all of the states in the JSON file.
+* Lookup county: 0%
+* File I/O 0%
