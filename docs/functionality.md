@@ -26,9 +26,10 @@ checks to see whether there are parentheses by calling has_parens_or_brackets, a
 Next, it does a similar process with dashes or spaces, only it calls has_dashes_or_spaces and if it does have dashes
 or spaces, it calls strip_dashes. 
 
-After the formatting is stripped, the function checks whether the trinomial has a state code that is one or two
-characters long. Depending on which it is, the locations where the trinomial is split is different. Either way, each of
-the parts is stored in its respective variable.
+Then, it calls three functions that grab the state number, county code, and site code specifically. The state number 
+grabber adds characters to the state number until it hits an alphabetical character, at which point it returns. The site
+number grabber starts from the point the other two functions left off and stuffs the rest of the characters into
+its variable.
 
 ### has_dashes_or_spaces
 

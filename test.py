@@ -8,6 +8,8 @@ import trinomiallookup as tl
 t = input("Enter a ST: ")
 
 trinomial = ts.TrinomialSplit(t)
-state = tl.lookup_state(trinomial)
-print(state)
+
+print(trinomial.statenumber, " ", trinomial.countycode, " ", trinomial.sitenumber)
+#state = tl.lookup_state(trinomial)
+#print(state)
 

@@ -13,6 +13,8 @@ class TrinomialSplit:
     statenumber = ""
     countycode = ""
     sitenumber = ""
+    count = 0
+    countycount = 0
 
 
     def __init__(self, trinomialinstance):
@@ -58,6 +60,42 @@ class TrinomialSplit:
         # store the stripped version back into the original.
         self.trinomial = strippedtrinomial
 
+
+    #Grabs the state code
+
+    def get_state_code(self):
+        for i in range(0, len(self.trinomial)):
+            if self.trinomial[i].isdigit():
+                self.statenumber += self.trinomial[i]
+                self.count += 1
+            elif self.count > 2:
+                print("WARNING: state numbers are not more than 2 digits long. Have you checked if your data is "
+                      "cleaned?")
+                return
+            else:
+                return
+
+    #Grabs the county code
+    def get_county_code(self):
+        for i in range(len(self.statenumber), len(self.trinomial)):
+            if self.trinomial[i].isalpha():
+                self.countycode += self.trinomial[i]
+                self.count += 1
+                self.countycount += 1
+            elif self.countycount > 3:
+                print("WARNING: county codes are typically not more than 3 digits long. Have you checked if your data "
+                      "is cleaned?")
+                return
+            else:
+                return
+
+
+    #grabs the site number
+    def get_site_number(self):
+        for i in range(self.count, len(self.trinomial)):
+            self.sitenumber += self.trinomial[i]
+
+
     def split_trinomial(self):
 
         if self.has_parens_or_brackets():
@@ -69,33 +107,10 @@ class TrinomialSplit:
         if self.is_lowercase():
             self.change_toupper()
 
-        for i in range(0, len(self.trinomial)):
+        self.get_state_code()
+        self.get_county_code()
+        self.get_site_number()
 
-            #If the state number is two digits long:
-            if self.trinomial[1].isdigit():
-                # Stuff the first two characters into the state number
-                if i < 2:
-                    self.statenumber += self.trinomial[i]
-
-                # Stuff the next two characters into the county code
-                elif i < 4:
-                    self.countycode += self.trinomial[i]
-
-                # Stuff the rest into the site number
-                else:
-                    self.sitenumber += self.trinomial[i]
-            #if the state number is one digit long
-            else:
-                # Stuff the first character into the state number
-                if i < 1:
-                    self.statenumber += self.trinomial[i]
-
-                # Stuff the next two characters into the county code
-                elif i < 3:
-                    self.countycode += self.trinomial[i]
-                # Stuff the rest into the site number
-                else:
-                    self.sitenumber += self.trinomial[i]
 
     # Test function to print out the trinomial elements.
     def print_elements(self):
