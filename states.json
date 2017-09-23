@@ -4,9 +4,200 @@
 			"Tri":"1",
 			"state":"Alabama"
 		},
+
 		{
-			"Tri": "3",
-			"state": "Arkansas"
+			"Tri":"01",
+			"state":"Alabama"
+		},
+
+		{
+			"Tri":"3",
+			"state":"Arkansas"
+		},
+
+		{
+			"Tri":"03",
+			"state":"Arkansas"
+		},
+
+		{
+			"Tri":"49",
+			"state":"Alaska"
+		},
+
+		{
+			"Tri":"5",
+			"state":"Colorado"
+		},
+		{
+			"Tri":"05",
+			"state":"Colorado"
+		},
+		{
+			"Tri":"7",
+			"state":"Delaware"
+		},
+		{
+			"Tri":"07",
+			"state":"Delaware"
+		},
+		{
+			"Tri":"8",
+			"state":"Florida"
+
+		},
+		{
+			"Tri":"08",
+			"state":"Florida"
+		},
+		{
+			"Tri":"9",
+			"state":"Georgia"
+		},
+		{
+			"Tri":"09",
+			"state":"Georgia"
+		},
+		{
+			"Tri":"10",
+			"state":"Idaho"
+		},
+		{
+			"Tri":"11",
+			"state":"Illinois"
+		},
+		{
+			"Tri":"12",
+			"state":"Indiana"
+		},
+		{
+			"Tri":"13",
+			"state":"Iowa"
+		},
+		{
+			"Tri":"14",
+			"state":"Kansas"
+		},
+		{
+			"Tri":"15",
+			"state":"Kentucky"
+		},
+		{
+			"Tri":"16",
+			"state":"Louisiana"
+		},
+		{
+			"Tri":"18",
+			"state":"Maryland"
+		},
+		{
+			"Tri":"19",
+			"state":"Massachusetts"
+		},
+		{
+			"Tri":"20",
+			"state":"Michigan"
+		},
+		{
+			"Tri":"21",
+			"state":"Minnesota"
+		},
+		{
+			"Tri":"22",
+			"state":"Mississippi"
+		},
+		{
+			"Tri":"23",
+			"state":"Missouri"
+		},
+		{
+			"Tri":"24",
+			"state":"Montana"
+		},
+		{
+			"Tri":"25",
+			"state":"Nebraska"
+		},
+		{
+			"Tri":"26",
+			"state":"Nevada"
+		},
+		{
+			"Tri":"27",
+			"state":"Nevada"
+		},
+		{
+			"Tri":"28",
+			"state":"New Jersey"
+		},
+		{
+			"Tri":"29",
+			"state":"New Mexico"
+		},
+		{
+			"Tri":"31",
+			"state":"North Carolina"
+		},
+		{
+			"Tri":"32",
+			"state":"North Dakota"
+		},
+		{
+			"Tri":"33",
+			"state":"Ohio"
+		},
+		{
+			"Tri":"34",
+			"state":"Oklahoma"
+		},
+		{
+			"Tri":"35",
+			"state":"Oregon"
+		},
+		{
+			"Tri":"36",
+			"state":"Pennsylvania"
+		},
+		{
+			"Tri":"38",
+			"state":"South Carolina"
+		},
+		{
+			"Tri":"39",
+			"state":"South Dakota"
+		},
+		{
+			"Tri":"40",
+			"state":"Tennessee"
+		},
+		{
+			"Tri":"41",
+			"state":"Texas"
+		},
+		{
+			"Tri":"42",
+			"state":""Utah"
+		},
+		{
+			"Tri":"44",
+			"state":"Virginia"
+		},
+		{
+			"Tri":"45",
+			"state":"Washington"
+		},
+		{
+			"Tri":"46",
+			"state":"West Virginia"
+		},
+		{
+			"Tri":"47",
+			"state":"Wisconsin"
+		},
+		{
+			"Tri":"48",
+			"state":"Wyoming"
 		}
 	]
 }
+
