@@ -101,6 +101,32 @@ class TrinomialSplit:
         for i in range(self.count, len(self.trinomial)):
             self.sitenumber += self.trinomial[i]
 
+    # see if the site number has leading zeros
+    def has_leading(self):
+        if self.sitenumber[0] == "0":
+            return True
+        else:
+            return False
+
+    #count and return the number of leading zeros
+    def leadingzeros(self):
+        leading = 0
+        for i in range(0, len(self.sitenumber)):
+            if self.sitenumber[i] == "0":
+                leading += 1
+            else:
+                return leading
+
+    # remove the leading zeroes
+    def remove_leading(self):
+        temp = ""
+        # start counting at the point where there are no leading zeroes.
+        for i in range(self.leadingzeros(), len(self.sitenumber)):
+            temp += self.sitenumber[i]
+        self.sitenumber = temp
+
+
+
 
     def split_trinomial(self):
 
@@ -119,6 +145,9 @@ class TrinomialSplit:
             self.statenumber = "00"
         self.get_county_code()
         self.get_site_number()
+
+        if self.has_leading():
+            self.remove_leading()
 
 
     # Test function to print out the trinomial elements.

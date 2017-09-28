@@ -49,6 +49,18 @@ Boolean function. Checks whether the trinomial has parentheses or brackets. if s
 Strips the parentheses or brackets off of a trinomial. Does so by copying all of the characters in the trinomial that 
 are not at the beginning or at the end.
 
+### has_leading
+
+Checks whether the site number has leading zeroes or not
+
+### leadingzeros
+
+Counts and returns the number of leading zeroes in the site number.
+
+### removeleading
+
+Removes leading zeros from a trinomial
+
 
 
 ## trinomiallookup
