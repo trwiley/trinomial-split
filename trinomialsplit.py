@@ -31,6 +31,12 @@ class TrinomialSplit:
 
         return False
 
+    def has_state_no(self):
+        if self.trinomial[0].isdigit():
+            return True
+        else:
+            return False
+
     # strip dashes or spaces
     def strip_dashes(self):
         strippedtrinomial = ""
@@ -107,7 +113,10 @@ class TrinomialSplit:
         if self.is_lowercase():
             self.change_toupper()
 
-        self.get_state_code()
+        if self.has_state_no():
+             self.get_state_code()
+        else:
+            self.statenumber = "00"
         self.get_county_code()
         self.get_site_number()
 

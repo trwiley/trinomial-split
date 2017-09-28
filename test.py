@@ -10,6 +10,7 @@ t = input("Enter a ST: ")
 trinomial = ts.TrinomialSplit(t)
 
 print(trinomial.statenumber, " ", trinomial.countycode, " ", trinomial.sitenumber)
+
 #state = tl.lookup_state(trinomial)
 #print(state)
 
