@@ -32,10 +32,10 @@ class TrinomialSplit:
         return False
 
     def has_state_no(self):
-        if self.trinomial[0].isdigit():
-            return True
-        else:
+        if self.statenumber == "00":
             return False
+        else:
+            return True
 
     # strip dashes or spaces
     def strip_dashes(self):
@@ -83,7 +83,14 @@ class TrinomialSplit:
 
     #Grabs the county code
     def get_county_code(self):
-        for i in range(len(self.statenumber), len(self.trinomial)):
+        # If tere is a state number, the starting off point for the loop should be its length.
+        # else, it should be 0.
+
+        if (self.has_state_no):
+            startcount = len(self.statenumber)
+        else:
+            startcount = 0
+        for i in range(startcount, len(self.trinomial)):
             if self.trinomial[i].isalpha():
                 self.countycode += self.trinomial[i]
                 self.count += 1
