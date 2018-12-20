@@ -25,11 +25,10 @@ class TrinomialSplit:
 
     # see if the trinomial has dashes or spaces
     def has_dashes_or_spaces(self):
-        for i in range(0, len(self.trinomial)):
-            if (self.trinomial[i] == " ") or (self.trinomial[i] == "-"):
-                return True
-
-        return False
+        if (self.trinomial.find("-") != -1) or (self.trinomial.find(" ") != -1):
+            return True
+        else:
+            return False
 
     def has_state_no(self):
         if self.statenumber == "00":
@@ -39,74 +38,57 @@ class TrinomialSplit:
 
     # strip dashes or spaces
     def strip_dashes(self):
-        strippedtrinomial = ""
-        for i in range(0, len(self.trinomial)):
-            # if the character is not a space or dash, copy it over.
-            if (self.trinomial[i] != " ") and (self.trinomial[i] != "-"):
-                strippedtrinomial += self.trinomial[i]
-        self.trinomial = strippedtrinomial
+        stripped_dash = self.trinomial.replace("-", "")
+        print(stripped_dash)
+        stripped_parens = stripped_dash.replace(" ", "")
+        self.trinomial = stripped_parens
 
     # see if the trinomial has parentheses or brackets, return true if the case.
     def has_parens_or_brackets(self):
-        if (self.trinomial[0] == "(") and (self.trinomial[len(self.trinomial) - 1] == ")"):
-            return True
-        elif (self.trinomial[0] == "[") and (self.trinomial[len(self.trinomial) - 1] == "]"):
+        if ((self.trinomial.find("(") != -1) or (self.trinomial.find(")") != -1)) or \
+        ((self.trinomial.find("[") != -1) or (self.trinomial.find("]") != -1)):
             return True
         else:
             return False
+    
 
     # Strip trinomial of brackets or parens
     def strip_parens(self):
-        strippedtrinomial = ""
-        for i in range(0, len(self.trinomial)):
-            # If not the first or last character (the spaces, in other words), copy over.
-            if (i != 0) and (i != len(self.trinomial) - 1):
-                strippedtrinomial += self.trinomial[i]
+        stripped_open = self.trinomial.replace("(", "")
+        stripped_closed = stripped_open.replace(")", "")
 
-        # store the stripped version back into the original.
-        self.trinomial = strippedtrinomial
+        stripped_bro = stripped_closed.replace("[", "")
+        stripped_brc = stripped_bro.replace("]", "")
+        
+        self.trinomial = stripped_brc
 
 
-    #Grabs the state code
+    #Grabs the state code.
 
     def get_state_code(self):
-        for i in range(0, len(self.trinomial)):
-            if self.trinomial[i].isdigit():
-                self.statenumber += self.trinomial[i]
-                self.count += 1
-            elif self.count > 2:
-                print("WARNING: state numbers are not more than 2 digits long. Have you checked if your data is "
-                      "cleaned?")
-                return
-            else:
-                return
+        self.statenumber = self.trinomial[self.count:2]
+        self.count += 2
 
     #Grabs the county code
     def get_county_code(self):
-        # If tere is a state number, the starting off point for the loop should be its length.
+        # If there is a state number, the starting off point for the loop should be its length.
         # else, it should be 0.
 
-        if (self.has_state_no):
-            startcount = len(self.statenumber)
-        else:
-            startcount = 0
-        for i in range(startcount, len(self.trinomial)):
-            if self.trinomial[i].isalpha():
-                self.countycode += self.trinomial[i]
-                self.count += 1
-                self.countycount += 1
-            elif self.countycount > 3:
-                print("WARNING: county codes are typically not more than 3 digits long. Have you checked if your data "
-                      "is cleaned?")
-                return
-            else:
-                return
+        #keep track of what the length of the county code is.
+        countylen = 0
+
+        for char in self.trinomial:
+            if char.isalpha():
+                countylen += 1
+
+        #county code spans from the current count to the end of the code
+        self.countycode = self.trinomial[self.count:self.count + countylen]
+        self.count += countylen
 
 
     #grabs the site number
     def get_site_number(self):
-        for i in range(self.count, len(self.trinomial)):
-            self.sitenumber += self.trinomial[i]
+        self.sitenumber = self.trinomial[self.count:]
 
     # see if the site number has leading zeros
     def has_leading(self):
@@ -118,19 +100,15 @@ class TrinomialSplit:
     #count and return the number of leading zeros
     def leadingzeros(self):
         leading = 0
-        for i in range(0, len(self.sitenumber)):
-            if self.sitenumber[i] == "0":
+        for n in self.sitenumber:
+            if n == "0":
                 leading += 1
             else:
                 return leading
 
     # remove the leading zeroes
     def remove_leading(self):
-        temp = ""
-        # start counting at the point where there are no leading zeroes.
-        for i in range(self.leadingzeros(), len(self.sitenumber)):
-            temp += self.sitenumber[i]
-        self.sitenumber = temp
+        self.sitenumber = self.sitenumber[self.leadingzeros():]
 
 
 
