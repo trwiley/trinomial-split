@@ -48,24 +48,30 @@ class TrinomialSplit:
     def strip_spaces(self):
         self.trinomial = self.trinomial.replace(" ", "")
 
-    # see if the trinomial has parentheses or brackets, return true if the case.
-    def has_parens_or_brackets(self):
-        if ((self.trinomial.find("(") != -1) or (self.trinomial.find(")") != -1)) or \
-        ((self.trinomial.find("[") != -1) or (self.trinomial.find("]") != -1)):
+    def has_parens(self):
+        if ((self.trinomial.find("(") != -1) or (self.trinomial.find(")") != -1)):
             return True
         else:
             return False
+
+    def has_brackets(self):
+        if ((self.trinomial.find("[") != -1) or (self.trinomial.find("]") != -1)):
+            return True
+        else:
+            return False
+
+
     
 
     # Strip trinomial of brackets or parens
     def strip_parens(self):
-        stripped_open = self.trinomial.replace("(", "")
-        stripped_closed = stripped_open.replace(")", "")
+        self.trinomial = self.trinomial.replace("(", "")
+        self.trinomial = self.trinomial.replace(")", "")
+    
+    def strip_brackets(self):
+        self.trinomial = self.trinomial.replace("]", "")
+        self.trinomial = self.trinomial.replace("[", "")
 
-        stripped_bro = stripped_closed.replace("[", "")
-        stripped_brc = stripped_bro.replace("]", "")
-        
-        self.trinomial = stripped_brc
 
 
     #Grabs the state code.
@@ -120,13 +126,16 @@ class TrinomialSplit:
 
     def split_trinomial(self):
 
-        if self.has_parens_or_brackets():
+        if self.has_parens():
             self.strip_parens()
+        if self.has_brackets():
+            self.strip_brackets()
 
         if self.has_dashes():
             self.strip_dashes()
         if self.has_spaces():
             self.strip_spaces()
+        
 
         if self.is_lowercase():
             self.change_toupper()
@@ -151,20 +160,19 @@ class TrinomialSplit:
 
     # checks if any of the letters are lower case, and, if so, returns true.
     def is_lowercase(self):
-        for i in range(0, len(self.trinomial)):
-            if self.trinomial[i].isalpha():
-                if self.trinomial[i].islower():
-                    return True
-
+        for char in self.trinomial:
+            if char.islower():
+                return True
         return False
 
     #changes any lowercase letters to uppercase.
     def change_toupper(self):
         temp = ""
-        for i in range(0, len(self.trinomial)):
-            if  self.trinomial[i].isalpha() and self.trinomial[i].islower():
-                temp += self.trinomial[i].upper()
+        for char in self.trinomial:
+            if char.islower():
+                temp += char.upper()
             else:
-                temp += self.trinomial[i]
+                temp += char
+
         self.trinomial = temp
         
