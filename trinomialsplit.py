@@ -21,14 +21,18 @@ class TrinomialSplit:
         self.trinomial = trinomialinstance
         self.split_trinomial()
 
-
-
-    # see if the trinomial has dashes or spaces
-    def has_dashes_or_spaces(self):
-        if (self.trinomial.find("-") != -1) or (self.trinomial.find(" ") != -1):
+    def has_dashes(self):
+        if self.trinomial.find("-") != -1:
             return True
         else:
             return False
+
+    def has_spaces(self):
+        if self.trinomial.find(" ") != -1:
+            return True
+        else:
+            return False
+
 
     def has_state_no(self):
         if self.statenumber == "00":
@@ -36,12 +40,13 @@ class TrinomialSplit:
         else:
             return True
 
-    # strip dashes or spaces
+    # strip dashes
     def strip_dashes(self):
-        stripped_dash = self.trinomial.replace("-", "")
-        print(stripped_dash)
-        stripped_parens = stripped_dash.replace(" ", "")
-        self.trinomial = stripped_parens
+        self.trinomial = self.trinomial.replace("-", "")
+
+    #strip spaces
+    def strip_spaces(self):
+        self.trinomial = self.trinomial.replace(" ", "")
 
     # see if the trinomial has parentheses or brackets, return true if the case.
     def has_parens_or_brackets(self):
@@ -118,8 +123,10 @@ class TrinomialSplit:
         if self.has_parens_or_brackets():
             self.strip_parens()
 
-        if self.has_dashes_or_spaces():
+        if self.has_dashes():
             self.strip_dashes()
+        if self.has_spaces():
+            self.strip_spaces()
 
         if self.is_lowercase():
             self.change_toupper()
